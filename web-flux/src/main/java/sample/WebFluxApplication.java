@@ -29,9 +29,9 @@ public class WebFluxApplication {
     }
 
     @GetMapping("/greeting")
-    public Mono<String> greeting() {
+    public String greeting() {
         String idInEureka = eurekaClient.getApplication(appName).getInstances().get(0).getId();
-        return Mono.just(String.format("Hello from '%s'!", idInEureka));
+        return String.format("Hello from '%s'!", idInEureka);
     }
 
     @GetMapping("/greetingWithParam")
